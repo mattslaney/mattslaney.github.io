@@ -11,7 +11,7 @@
             border: 1px solid black;
           }
         </style>
-        <link type="text/css" rel="stylesheet" href="layout.css" />
+        <link type="text/css" rel="stylesheet" href="layout.css"></link>
         <link type="text/css" rel="stylesheet" href="styles.css" />
         <link type="text/css" rel="stylesheet" href="print.css" />
       </head>
