@@ -43,6 +43,16 @@
             <div class="col-9">&#160;</div>
             <div class="col-3">&#160;</div>
           </div>
+          <div class="row">
+            <div class="col-12">
+              <xsl:value-of select="/data/a"/>
+              <xsl:value-of select="/data/b"/>
+              <xsl:value-of select="/data/c/@name"/>
+              <xsl:for-each select="/data/c/d">
+                <xsl:value-of select="d"/>
+              </xsl:for-each>
+            </div>
+          </div>
         </div>
       </body>
     </html>
