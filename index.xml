@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="styles/index.xslt"?>
+<data>
+ <a>The Letter A<a>
+ <b>The Letter B</b>
+ <c name="The Letter C">
+  <d>The Letter D</d>
+  <d>The Letter D Again</d>
+  <d>Yet again... The letter D</d>
+ <c>
+</data>
