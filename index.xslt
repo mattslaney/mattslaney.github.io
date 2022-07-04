@@ -17,10 +17,32 @@
       </head>
       <body>
         <div class="page1 page A4">
-          <p>This is some content</p>
+          <div class="row">
+            <div class="col-3">&#160;</div>
+            <div class="col-9">&#160;</div>
+          </div>
+          <div class="row">
+            <div class="col-9">&#160;</div>
+            <div class="col-3">&#160;</div>
+          </div>
+          <div class="row">
+            <div class="col-3">&#160;</div>
+            <div class="col-9">&#160;</div>
+          </div>
         </div>
         <div class="page2 page A4">
-          <p>This is some content</p>
+          <div class="row">
+            <div class="col-9">&#160;</div>
+            <div class="col-3">&#160;</div>
+          </div>
+          <div class="row">
+            <div class="col-3">&#160;</div>
+            <div class="col-9">&#160;</div>
+          </div>
+          <div class="row">
+            <div class="col-9">&#160;</div>
+            <div class="col-3">&#160;</div>
+          </div>
         </div>
       </body>
     </html>
