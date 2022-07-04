@@ -11,9 +11,9 @@
             border: 1px solid black;
           }
         </style>
-        <link type="css" rel="stylesheet" href="layout.css" />
-        <link type="css" rel="stylesheet" href="styles.css" />
-        <link type="css" rel="stylesheet" href="print.css" />
+        <link type="text/css" rel="stylesheet" href="layout.css" />
+        <link type="text/css" rel="stylesheet" href="styles.css" />
+        <link type="text/css" rel="stylesheet" href="print.css" />
       </head>
       <body>
         <div class="page1 page A4">
