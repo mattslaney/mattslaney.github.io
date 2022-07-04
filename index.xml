@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="index.xslt"?>
 <data>
- <a>The Letter A<a>
+ <a>The Letter A</a>
  <b>The Letter B</b>
  <c name="The Letter C">
   <d>The Letter D</d>
