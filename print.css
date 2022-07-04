@@ -1,0 +1,21 @@
+@media print {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .A4 {
+    box-shadow: none;
+    margin: 0;
+    width: 21cm;
+    height: 29.7cm;
+  }
+
+  .noprint {
+    display: none;
+  }
+
+  .enable-print {
+    display: block;
+  }
+}
