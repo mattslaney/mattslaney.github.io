@@ -9,16 +9,24 @@ layout: base
   {{ content }}
 
   {%- if site.projects.size > 0 -%}
-    <div style="display: grid; grid-template-columns: repeat(4, 22%); gap: 2%;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 25px">
       {%- for project in site.projects -%}
-      <div style="border: dashed 1px; border-color: var(--custom-mono1)">
-        <h3>
+      <div style="padding: 10px; position: relative; aspect-ratio: 1; border: dashed 1px; border-color: var(--custom-mono1)">
+        <h5 style="text-align: center">
           <a class="post-link" href="{{ project.url | relative_url }}">
             {{ project.title | escape }}
           </a>
-        </h3>
-        {%- if site.show_excerpts -%}
-          {{ project.excerpt }}
+        </h5>
+        <div style="text-align: justify; text-justify: inter-word;">
+        {{ project.description }}
+        </div>
+        {%- if project.repo -%}
+        {% capture repo %} 
+        {{- site.data.github.username -}}/{{- project.repo -}}
+        {% endcapture %}
+        <div style="position: absolute; bottom: 0px; width: 100%; text-align: center;">
+        <a href="http://github.com/{{ repo }}">{{ repo }}</a>
+        </div>
         {%- endif -%}
       </div>
       {%- endfor -%}
