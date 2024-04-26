@@ -1,0 +1,30 @@
+---
+layout: base
+---
+<div class="home">
+  {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}
+
+  {{ content }}
+
+  {%- if site.projects.size > 0 -%}
+    <div style="display: grid; grid-template-columns: repeat(4, 22%); gap: 2%;">
+      {%- for project in site.projects -%}
+      <div style="border: dashed 1px; border-color: var(--custom-mono1)">
+        <h3>
+          <a class="post-link" href="{{ project.url | relative_url }}">
+            {{ project.title | escape }}
+          </a>
+        </h3>
+        {%- if site.show_excerpts -%}
+          {{ project.excerpt }}
+        {%- endif -%}
+      </div>
+      {%- endfor -%}
+    </div>
+  {%- else -%}
+    <p>I'm not currently working on any projects...</p>
+  {%- endif -%}
+
+</div>
