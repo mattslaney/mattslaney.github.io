@@ -1,0 +1,199 @@
+@charset "utf-8";
+
+// Custom skin
+// ==============
+// "custom-light" for light mode, "custom-dark" for dark mode, and
+// "custom" for light or dark mode depending on user preference.
+$cstm-is-auto: true !default;
+$cstm-is-dark: false !default;
+
+// Color scheme
+// ------------
+// The inline comments show the canonical L*a*b values for each color.
+
+//Background Tones - Dark
+$cstm-base03:   #02161c;  // 15 -12 -12
+$cstm-base02:   #112935;  // 20 -12 -12
+// Content Tones
+$cstm-base01:   #586e75;  // 45 -07 -07
+$cstm-base00:   #657b83;  // 50 -07 -07
+$cstm-base0:    #839496;  // 60 -06 -03
+$cstm-base1:    #93a1a1;  // 65 -05 -02
+// Backround Tones - Light
+$cstm-base2:    #eee8d5;  // 92 -00  10
+$cstm-base3:    #fdf6e3;  // 97  00  10
+// Accent Colors
+$cstm-yellow:   #b58900;  // 60  10  65 // Split Comp
+$cstm-orange:   #cb4b16;  // 50  50  55 // Complement
+$cstm-red:      #dc322f;  // 50  65  45 // Triad
+$cstm-magenta:  #d33682;  // 50  65 -05 // Tetrad
+$cstm-violet:   #6c71c4;  // 50  15 -45 // Analogous
+$cstm-blue:     #268bd2;  // 55 -10 -45 // Monotone
+$cstm-cyan:     #2aa198;  // 60 -35 -05 // Analogous
+$cstm-green:    #859900;  // 60 -20  65 // Tetrad
+
+// Mixed colors
+// ------------
+// While not part of the original Solarized base tones, these derived tones
+// are meant to replicate the visual style of the classic skin. They should
+// not be used in cases where sufficiently contrasting colors are needed.
+
+$cstm-light-mix1:  mix($cstm-base1, $cstm-base3);
+$cstm-light-mix2:  mix($cstm-blue, $cstm-base00);
+$cstm-light-mix3:  mix($cstm-base2, $cstm-base3);
+$cstm-dark-mix1:   mix($cstm-base01, $cstm-base03);
+$cstm-dark-mix2:   mix($cstm-blue, $cstm-base0);
+$cstm-dark-mix3:   mix($cstm-base02, $cstm-base03);
+
+
+// Mode selection
+// --------------
+
+$cstm-mono3:    $cstm-base3;
+$cstm-mono2:    $cstm-base2;
+$cstm-mono1:    $cstm-base1;
+$cstm-mono00:   $cstm-base00;
+$cstm-mono01:   $cstm-base01;
+$cstm-mix1:     $cstm-light-mix1;
+$cstm-mix2:     $cstm-light-mix2;
+$cstm-mix3:     $cstm-light-mix3;
+
+@if $cstm-is-dark {
+  $cstm-mono3:  $cstm-base03;
+  $cstm-mono2:  $cstm-base02;
+  $cstm-mono1:  $cstm-base01;
+  $cstm-mono00: $cstm-base0;
+  $cstm-mono01: $cstm-base1;
+  $cstm-mix1:   $cstm-dark-mix1;
+  $cstm-mix2:   $cstm-dark-mix2;
+  $cstm-mix3:   $cstm-dark-mix3;
+}
+
+@if $cstm-is-auto {
+  :root {
+    --custom-mono3:  #{$cstm-base3};
+    --custom-mono2:  #{$cstm-base2};
+    --custom-mono1:  #{$cstm-base1};
+    --custom-mono00: #{$cstm-base00};
+    --custom-mono01: #{$cstm-base01};
+    --custom-mix1:   #{$cstm-light-mix1};
+    --custom-mix2:   #{$cstm-light-mix2};
+    --custom-mix3:   #{$cstm-light-mix3};
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --custom-mono3:  #{$cstm-base03};
+      --custom-mono2:  #{$cstm-base02};
+      --custom-mono1:  #{$cstm-base01};
+      --custom-mono00: #{$cstm-base0};
+      --custom-mono01: #{$cstm-base1};
+      --custom-mix1:   #{$cstm-dark-mix1};
+      --custom-mix2:   #{$cstm-dark-mix2};
+      --custom-mix3:   #{$cstm-dark-mix3};
+    }
+  }
+
+  $cstm-mono3:  var(--custom-mono3);
+  $cstm-mono2:  var(--custom-mono2);
+  $cstm-mono1:  var(--custom-mono1);
+  $cstm-mono00: var(--custom-mono00);
+  $cstm-mono01: var(--custom-mono01);
+  $cstm-mix1:   var(--custom-mix1);
+  $cstm-mix2:   var(--custom-mix2);
+  $cstm-mix3:   var(--custom-mix3);
+}
+
+
+// Minima color variables
+// ----------------------
+
+$brand-color:           $cstm-mono1 !default;
+$brand-color-light:     $cstm-mix1 !default;
+$brand-color-dark:      $cstm-mono00 !default;
+
+$site-title-color:      $cstm-mono00 !default;
+
+$text-color:            $cstm-mono01 !default;
+$background-color:      $cstm-mono3 !default;
+$code-background-color: $cstm-mono2 !default;
+
+$link-base-color:       $cstm-blue !default;
+$link-visited-color:    $cstm-mix2 !default;
+$link-hover-color:      $cstm-mono00 !default;
+
+$border-color-01:       $brand-color-light !default;
+$border-color-02:       $cstm-mono1 !default;
+$border-color-03:       $cstm-mono00 !default;
+
+$table-text-color:      $cstm-mono00 !default;
+$table-zebra-color:     $cstm-mix3 !default;
+$table-header-bg-color: $cstm-mono2 !default;
+$table-header-border:   $cstm-mono1 !default;
+$table-border-color:    $cstm-mono1 !default;
+
+
+// Syntax highlighting styles
+// --------------------------
+
+.highlight {
+  .c     { color: $cstm-mono1; font-style: italic } // Comment
+  .err   { color: $cstm-red } // Error
+  .k     { color: $cstm-mono01; font-weight: bold } // Keyword
+  .o     { color: $cstm-mono01; font-weight: bold } // Operator
+  .cm    { color: $cstm-mono1; font-style: italic } // Comment.Multiline
+  .cp    { color: $cstm-mono1; font-weight: bold } // Comment.Preproc
+  .c1    { color: $cstm-mono1; font-style: italic } // Comment.Single
+  .cs    { color: $cstm-mono1; font-weight: bold; font-style: italic } // Comment.Special
+  .gd    { color: $cstm-red } // Generic.Deleted
+  .gd .x { color: $cstm-red } // Generic.Deleted.Specific
+  .ge    { color: $cstm-mono00; font-style: italic } // Generic.Emph
+  .gr    { color: $cstm-red } // Generic.Error
+  .gh    { color: $cstm-mono1 } // Generic.Heading
+  .gi    { color: $cstm-green } // Generic.Inserted
+  .gi .x { color: $cstm-green } // Generic.Inserted.Specific
+  .go    { color: $cstm-mono00 } // Generic.Output
+  .gp    { color: $cstm-mono00 } // Generic.Prompt
+  .gs    { color: $cstm-mono01; font-weight: bold } // Generic.Strong
+  .gu    { color: $cstm-mono1 } // Generic.Subheading
+  .gt    { color: $cstm-red } // Generic.Traceback
+  .kc    { color: $cstm-mono01; font-weight: bold } // Keyword.Constant
+  .kd    { color: $cstm-mono01; font-weight: bold } // Keyword.Declaration
+  .kp    { color: $cstm-mono01; font-weight: bold } // Keyword.Pseudo
+  .kr    { color: $cstm-mono01; font-weight: bold } // Keyword.Reserved
+  .kt    { color: $cstm-violet; font-weight: bold } // Keyword.Type
+  .m     { color: $cstm-cyan } // Literal.Number
+  .s     { color: $cstm-magenta } // Literal.String
+  .na    { color: $cstm-cyan } // Name.Attribute
+  .nb    { color: $cstm-blue } // Name.Builtin
+  .nc    { color: $cstm-violet; font-weight: bold } // Name.Class
+  .no    { color: $cstm-cyan } // Name.Constant
+  .ni    { color: $cstm-violet } // Name.Entity
+  .ne    { color: $cstm-violet; font-weight: bold } // Name.Exception
+  .nf    { color: $cstm-blue; font-weight: bold } // Name.Function
+  .nn    { color: $cstm-mono00 } // Name.Namespace
+  .nt    { color: $cstm-blue } // Name.Tag
+  .nv    { color: $cstm-cyan } // Name.Variable
+  .ow    { color: $cstm-mono01; font-weight: bold } // Operator.Word
+  .w     { color: $cstm-mono1 } // Text.Whitespace
+  .mf    { color: $cstm-cyan } // Literal.Number.Float
+  .mh    { color: $cstm-cyan } // Literal.Number.Hex
+  .mi    { color: $cstm-cyan } // Literal.Number.Integer
+  .mo    { color: $cstm-cyan } // Literal.Number.Oct
+  .sb    { color: $cstm-magenta } // Literal.String.Backtick
+  .sc    { color: $cstm-magenta } // Literal.String.Char
+  .sd    { color: $cstm-magenta } // Literal.String.Doc
+  .s2    { color: $cstm-magenta } // Literal.String.Double
+  .se    { color: $cstm-magenta } // Literal.String.Escape
+  .sh    { color: $cstm-magenta } // Literal.String.Heredoc
+  .si    { color: $cstm-magenta } // Literal.String.Interpol
+  .sx    { color: $cstm-magenta } // Literal.String.Other
+  .sr    { color: $cstm-green } // Literal.String.Regex
+  .s1    { color: $cstm-magenta } // Literal.String.Single
+  .ss    { color: $cstm-magenta } // Literal.String.Symbol
+  .bp    { color: $cstm-mono1 } // Name.Builtin.Pseudo
+  .vc    { color: $cstm-cyan } // Name.Variable.Class
+  .vg    { color: $cstm-cyan } // Name.Variable.Global
+  .vi    { color: $cstm-cyan } // Name.Variable.Instance
+  .il    { color: $cstm-cyan } // Literal.Number.Integer.Long
+}
