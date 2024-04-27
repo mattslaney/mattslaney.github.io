@@ -29,12 +29,14 @@ github_username:  mattslaney
 
 header_pages:
   - workspace.md
-  - studyspace.md
+  - skillspace.md
   - about.md
   - notes.md
 
 collections:
   projects:
+    output: true
+  notes:
     output: true
 
 # Build settings

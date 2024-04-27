@@ -1,11 +1,12 @@
 ---
-layout: study
-title: Studyspace 
-permalink: /studyspace/
+layout: skills
+filter: skills
+title: Skillspace 
+permalink: /Skillspace/
 ---
 
-> Welcome to my study space, here you will find the topics I am currently 
-> working on reinforcing or expanding my knowledge in.
+> Welcome to my skill space, here you will find the topics I am familiar with, 
+> am continually reinforcing and or expanding my knowledge in.
 
 Below is a tag cloud for posts on my github site, I make posts for each topic 
 I am familiar with. Each tag is colour coded depending on my most recent

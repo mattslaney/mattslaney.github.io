@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Working on Remote Servers
-date: 2024-04-27
-categories: servers
+title: servers
+date:   2000-01-01 00:00:00 +0100
+categories: skills
 tags: ssh linux tmux vim
 ---
 

@@ -19,7 +19,7 @@ layout: base
     {% assign tagitems = temptag | split: '#' %}
     {%- capture tagsize -%}{{ tagitems[0] }} {%- endcapture -%}
     {%- capture tagname -%}{{ tagitems[1] }}{%- endcapture -%}
-    <a href="/tag/{{ tagname }}"><span class="highligher-rouge" style="font-size:{{ tagsize }}px;"><nobr>{{ tagname }}</nobr></span></a>
+    <a href="/tags/{{ tagname }}"><span class="highligher-rouge" style="font-size:{{ tagsize }}px;"><nobr>{{ tagname }}</nobr></span></a>
   {% endfor %}
 </div>
 

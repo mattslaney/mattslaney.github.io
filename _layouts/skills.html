@@ -8,13 +8,24 @@ layout: base
 
   {{ content }}
 
-  <div style="text-align: center;">
+  <h2 style="text-align: center">{{ page.filter | default: "Tag" | capitalize }} Cloud</h2>
+  <div style="display: flex; justify-content: center;">
+  <div style="text-align: center; width: 60%">
   <!-- Work out the frequency/size of this tag -->
   {% capture temptags %}
     {% for tag in site.tags %}
       <!-- Work out the youngest post for this tag -->
+      {% assign count = 0 %}
       {% assign youngest = 9999 %}
       {% for post in tag[1] %}
+        {% if page.filter %}
+          {% if post.categories contains "skills" %}
+            {% assign count = count | plus: 1 %}
+          {% endif %}
+        {% else %}
+          {% assign count = count | plus: 1 %}
+        {% endif %}
+         
         {% assign post_date = post.date | date: "%s" %}
         {% assign current_date = "now" | date: "%s" %}
         {% assign days_old = current_date | minus: post_date | divided_by: 86400 %}
@@ -22,7 +33,9 @@ layout: base
           {% assign youngest = days_old %}
         {% endif %}
       {% endfor %}
-      {{ tag[1].size | plus: 10 }}#{{ tag[0] }}#{{ tag[1].size }}#{{ youngest }}
+      {% if count > 0 %}
+        {{ tag[1].size | plus: 10 }}#{{ tag[0] }}#{{ count }}#{{ youngest }}
+      {% endif %}
     {% endfor %}
   {% endcapture %}
 
@@ -43,8 +56,9 @@ layout: base
     {% else %}
       {% assign heat = "cold" %}
     {% endif %}
-    <a href="/tag/{{ tagname }}"><span class="highligher-rouge {{ heat }}" style="font-size:{{ tagsize }}px;"><nobr>{{ tagname }}</nobr></span></a>
+    <a href="/tags/{{ tagname }}"><span class="highligher-rouge {{ heat }}" style="font-size:{{ tagsize }}px;"><nobr>{{ tagname }}</nobr></span></a>
   {% endfor %}
+  </div>
   </div>
 </div>
 

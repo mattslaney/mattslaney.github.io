@@ -1,0 +1,14 @@
+---
+layout: base
+---
+
+<h1>{{ page.variable }}</h1>
+
+<ul>
+  {% assign items = site[page.variable] | sort %}
+{% for item in items %}
+<li>
+  <a href="/{{ page.variable }}/{{ item[0] }}">{{ item[0] }}</a>
+</li>
+{% endfor %}
+</ul>
