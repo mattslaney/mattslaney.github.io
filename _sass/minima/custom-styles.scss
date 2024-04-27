@@ -5,3 +5,20 @@ body {
   background-color: black;
   background: linear-gradient(black, var(--custom-mono2));
 }
+
+.hot {
+  color: $cstm-hot-mix;
+  font-weight: bold;
+}
+
+.warm {
+  color: $cstm-warm-mix;
+}
+
+.cool {
+  color: $cstm-cool-mix;
+}
+
+.cold {
+  color: $cstm-cold-mix;
+}

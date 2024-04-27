@@ -1,0 +1,50 @@
+---
+layout: base
+---
+<div class="home">
+  {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}
+
+  {{ content }}
+
+  <div style="text-align: center;">
+  <!-- Work out the frequency/size of this tag -->
+  {% capture temptags %}
+    {% for tag in site.tags %}
+      <!-- Work out the youngest post for this tag -->
+      {% assign youngest = 9999 %}
+      {% for post in tag[1] %}
+        {% assign post_date = post.date | date: "%s" %}
+        {% assign current_date = "now" | date: "%s" %}
+        {% assign days_old = current_date | minus: post_date | divided_by: 86400 %}
+        {% if days_old < youngest %}
+          {% assign youngest = days_old %}
+        {% endif %}
+      {% endfor %}
+      {{ tag[1].size | plus: 10 }}#{{ tag[0] }}#{{ tag[1].size }}#{{ youngest }}
+    {% endfor %}
+  {% endcapture %}
+
+  {% assign sortedtemptags = temptags | split:' ' %}
+  {%- for temptag in sortedtemptags -%}
+    {% assign tagitems = temptag | split: '#' %}
+    {%- capture tagsize -%}{{ tagitems[0] }} {%- endcapture -%}
+    {%- capture tagname -%}{{ tagitems[1] }}{%- endcapture -%}
+
+    <!-- Work out the heat for the youngest post -->
+    {% assign youngest = tagitems[3] | plus: 0 %}
+    {% if youngest < 14 %}
+      {% assign heat = "hot" %}
+    {% elsif youngest < 28 %}
+      {% assign heat = "warm" %}
+    {% elsif youngest < 56 %}
+      {% assign heat = "cool" %}
+    {% else %}
+      {% assign heat = "cold" %}
+    {% endif %}
+    <a href="/tag/{{ tagname }}"><span class="highligher-rouge {{ heat }}" style="font-size:{{ tagsize }}px;"><nobr>{{ tagname }}</nobr></span></a>
+  {% endfor %}
+  </div>
+</div>
+
