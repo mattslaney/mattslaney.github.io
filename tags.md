@@ -1,0 +1,5 @@
+---
+layout: vars
+variable: tags
+---
+

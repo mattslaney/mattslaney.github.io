@@ -44,6 +44,10 @@ $cstm-light-mix3:  mix($cstm-base2, $cstm-base3);
 $cstm-dark-mix1:   mix($cstm-base01, $cstm-base03);
 $cstm-dark-mix2:   mix($cstm-blue, $cstm-base0);
 $cstm-dark-mix3:   mix($cstm-base02, $cstm-base03);
+$cstm-hot-mix:     mix($cstm-red, $cstm-base0);
+$cstm-warm-mix:    mix($cstm-yellow, $cstm-base0);
+$cstm-cool-mix:    mix($cstm-green, $cstm-base0);
+$cstm-cold-mix:    mix($cstm-blue, $cstm-base0);
 
 
 // Mode selection
