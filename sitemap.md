@@ -33,7 +33,7 @@ layout: page
     <div>
         <h1>Categories</h1>
         <ul>
-        {% assign categories = site.categories %}
+        {% assign categories = site.categories | sort %}
         {% for category in categories %}
             <li>    
                 <a href="/categories/{{ category[0] }}">{{ category[0] }}</a>
@@ -44,7 +44,7 @@ layout: page
     <div>
         <h1>Tags</h1>
         <ul>
-        {% assign tags = site.tags %}
+        {% assign tags = site.tags | sort %}
         {% for tag in tags %}
             <li>    
                 <a href="/tags/{{ tag[0] }}">{{ tag[0] }}</a>
