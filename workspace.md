@@ -1,5 +1,6 @@
 ---
 layout: projects
+limit: 56
 title: Workspace 
 permalink: /workspace/
 ---

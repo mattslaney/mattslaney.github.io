@@ -1,0 +1,51 @@
+{%- if site.categories.projects.size > 0 -%}
+  {% assign projects = site.categories.projects %}
+  
+  {% if include.days %}
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 25px">
+  {%- for project in projects -%}
+    {% assign project_date = project.date | date: "%s" %}
+    {% assign current_date = "now" | date: "%s" %}
+    {% assign days_old = current_date | minus: project_date | divided_by: 86400 %}
+    {% if project.name and days_old < include.days %}
+      <div style="padding: 10px; position: relative; aspect-ratio: 1; border: dashed 1px; border-color: var(--custom-mono1)">
+        <h5 style="text-align: center">
+          <a class="post-link" href="{{ project.url | relative_url }}">
+            {{ project.name | escape }}
+          </a>
+        </h5>
+        <div style="text-align: justify; text-justify: inter-word;">
+          {{ project.description }}
+        </div>
+        <div style="position: absolute; bottom: 0px; width: 100%; text-align: center;">
+        <a href="http://github.com/{{ project.repo }}">{{ project.repo }}</a>
+        </div>
+      </div>
+    {% endif %}
+  {%- endfor -%}
+  </div>
+  {% else %}
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 25px">
+    {%- for project in projects -%}
+      {% if project.name %}
+      <div style="padding: 10px; position: relative; aspect-ratio: 1; border: dashed 1px; border-color: var(--custom-mono1)">
+        <h5 style="text-align: center">
+          <a class="post-link" href="{{ project.url | relative_url }}">
+            {{ project.name | escape }}
+          </a>
+        </h5>
+        <div style="text-align: justify; text-justify: inter-word;">
+          {{ project.description }}
+        </div>
+        <div style="position: absolute; bottom: 0px; width: 100%; text-align: center;">
+        <a href="http://github.com/{{ project.repo }}">{{ project.repo }}</a>
+        </div>
+      </div>
+      {% endif %}
+    {%- endfor -%}
+  </div>
+  {% endif %}
+
+{%- else -%}
+  <p>I'm not currently working on any projects...</p>
+{%- endif -%}
